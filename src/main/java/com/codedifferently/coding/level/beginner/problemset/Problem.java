@@ -15,10 +15,10 @@ public class Problem {
      */
 
     public static Boolean avengersAssemble(boolean dcHero, boolean avengerHero) {
-
-        return null;
-
+         //check to see when there is NOT a DCHero and check when there is an avengerhero present
+        return (!dcHero || avengerHero);
     }
+
 
     /* Problem 3
     You and your friends are out walking on the boardwalk at Atlantic City
@@ -32,8 +32,11 @@ public class Problem {
      */
 
     public static Boolean nearValue(int n) {
-
-        return null;
+        //check if param is w/in 10 of 100 or 200
+        //return a boolean value
+        //check the absolute value of n-100 or n-200
+        //check if the difference is 10 or less
+        return (Math.abs(100-n) <= 10 || Math.abs(200-n ) <=10);
     }
 
      /* Problem 4
@@ -47,8 +50,11 @@ public class Problem {
      */
 
     public static String missingLetter(String letter, int n) {
-
-        return null;
+        String newString = "";
+        StringBuilder builder = new StringBuilder(letter);
+        builder = builder.deleteCharAt(n);
+        newString += builder;
+        return newString;
     }
 
     /* Problem 5
@@ -62,8 +68,9 @@ public class Problem {
      */
 
     public static String wordOfDay(String word) {
-
-        return null;
+        char ch1 = word.charAt(word.length() - 1);
+        String newString = ch1 + word + ch1;
+        return newString;
     }
 
     /* Problem 6
@@ -75,8 +82,7 @@ public class Problem {
      */
 
     public static Boolean beginWithHi(String phrase) {
-
-        return null;
+        return phrase.startsWith("hi");
     }
 
      /* Problem 7
@@ -89,9 +95,9 @@ public class Problem {
      */
 
     public static Boolean containTeen(int one, int two, int three){
-
-        return null;
+        return ((one >= 13 && one <= 19) || (two >= 13 && two <= 19) || (three >= 13 && three <= 19));
     }
+
 
     /* Problem 8
     Your local rapper is looking to create his next hook for his next track. He wants to add phrases that begin with "mix".
@@ -104,13 +110,13 @@ public class Problem {
      */
 
     public static Boolean startWithIx(String phrase) {
-
-        return null;
+        return phrase.startsWith("ix", 1);
     }
 
      /* Problem 9
-    Provide two numbers, evalute both numbers to see which one is nearest to the value 10.
-    Some numbers may have the same range in how near they are to 10; such as 13 and 7 both are 3 from 10;
+    Provide two numbers, evaluate both numbers to see which one is nearest to the value 10.
+    Some numbers may have the same range in how near they are to 10; such as 13 and 7 both
+    are 3 from 10;
     In that case, we would consider that event a tie.
     Tip: Math.abs(n) returns the absolute value of a number
     Return whichever number is nearest to 10, or return 0 for the event of a tie.
@@ -120,8 +126,15 @@ public class Problem {
      */
 
     public static Integer near10(int one, int two){
+        int difference = Math.abs(one -10);
+        int difference2 = Math.abs(10 - two);
 
-        return null;
+        if (difference < difference2){
+            return one;
+        }else if (difference2 < difference){
+            return two;
+        }return 0;
+
     }
 
     /* Problem 10
@@ -133,8 +146,12 @@ public class Problem {
      */
 
     public static Boolean containE(String str) {
-
-        return null;
+        int j = 0;
+        for (int i = 0; i < str.length(); i++) {
+            if (str.substring(i, i + 1).equals("e"))
+                j++;
+        }
+        return (j >= 1 && j <= 3);
     }
 
 }
